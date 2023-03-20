@@ -1,0 +1,1 @@
+kubectl edit pod frontend
