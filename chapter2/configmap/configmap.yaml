@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: backend-config
+  namespace: ckad-chapter2
+data:
+  database_url: jdbc:postgresql://localhost/test
+  db: staging
+  user: diego

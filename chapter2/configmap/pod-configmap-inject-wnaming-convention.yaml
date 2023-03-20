@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    run: mypod
+  name: mypod
+  namespace: ckad-chapter2
+spec:
+  containers:
+  - image: nginx
+    name: mypod
+    env:
+    - name: DATABASE_URL
+      valueFrom:
+        configMapKeyRef:
+          name: backend-config
+          key: database_url
+    - name: USERNAME
+      valueFrom:
+        configMapKeyRef:
+          name: backend-config
+          key: user
+    ports:
+    - containerPort: 80
+  dnsPolicy: ClusterFirst
+  restartPolicy: Never
